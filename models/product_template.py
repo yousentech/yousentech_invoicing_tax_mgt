@@ -8,17 +8,7 @@ class xx_add_fields_in_product(models.Model):
 
     tax_reqiured = fields.Boolean(string="خاضع للضريبة", default=True)
 
-
-class xx_sale_order_tax_required(models.Model):
-    _inherit = 'sale.order.line'
-
-    l_tax_reqiured = fields.Boolean()
-
-    @api.onchange('product_id')
-    def check_tax_required(self):
-        for rec in self:
-            if rec.product_id:
-                rec.l_tax_reqiured = rec.product_id.tax_reqiured
+ 
 
 class xx_account_move_line_tax_required(models.Model):
     _inherit = 'account.move.line'
