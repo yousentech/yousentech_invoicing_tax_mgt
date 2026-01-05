@@ -8,18 +8,18 @@ class xx_account_move_tax_required(models.Model):
     _inherit = 'account.move'
 
     # *******************************************************************************************************
-    allow_modify_product_tax_in_invoice = fields.Boolean(
-        default=lambda self: self._default_allow_modify_product_tax_in_invoice(),
-        compute="_get_allow_modify_product_tax_in_invoice")
+    disallow_modify_product_tax_in_invoice = fields.Boolean(
+        default=lambda self: self._default_disallow_modify_product_tax_in_invoice(),
+        compute="_get_disallow_modify_product_tax_in_invoice")
 
     # @api.depends('company_id')
-    def _get_allow_modify_product_tax_in_invoice(self):
+    def _get_disallow_modify_product_tax_in_invoice(self):
         for rec in self:
-            rec.allow_modify_product_tax_in_invoice = self.user_has_groups(
-                'yousentech_invoicing_tax_mgt.group_allow_modify_product_tax_in_invoice')
+            rec.disallow_modify_product_tax_in_invoice = self.user_has_groups(
+                'yousentech_invoicing_tax_mgt.group_disallow_modify_product_tax_in_invoice')
 
-    def _default_allow_modify_product_tax_in_invoice(self):
-        return self.user_has_groups('yousentech_invoicing_tax_mgt.group_allow_modify_product_tax_in_invoice')
+    def _default_disallow_modify_product_tax_in_invoice(self):
+        return self.user_has_groups('yousentech_invoicing_tax_mgt.group_disallow_modify_product_tax_in_invoice')
     # *******************************************************************************************************
 
     @api.constrains('invoice_line_ids')

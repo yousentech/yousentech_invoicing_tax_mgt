@@ -2,8 +2,8 @@
 <odoo>
 	<data>
 
-		<record id="group_allow_modify_product_tax_in_invoice" model="res.groups">
-			<field name="name">Allow modify tax in Invoice</field>
+		<record id="group_disallow_modify_product_tax_in_invoice" model="res.groups">
+			<field name="name">Dis allow modify tax in Invoice</field>
 		</record>
     </data>
 </odoo>
