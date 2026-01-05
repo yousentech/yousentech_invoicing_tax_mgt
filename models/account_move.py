@@ -26,7 +26,7 @@ class xx_account_move_tax_required(models.Model):
     def check_tax_required(self):
         for rec in self:
 
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
                 for line in rec.invoice_line_ids:
                     if line.product_id:
                         if line.product_id.tax_reqiured and not line.tax_ids:
