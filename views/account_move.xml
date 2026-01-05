@@ -7,10 +7,9 @@
             <field name="arch" type="xml">
 
                     <field name="journal_id" position="after">
-                        <field name="allow_modify_product_tax_in_invoice" invisible="1"/>
+                        <field name="allow_modify_product_tax_in_invoice"  />
 
                     </field>
-
 
                     <xpath expr = "//field[@name = 'invoice_line_ids']/tree/field[@name = 'tax_ids']" position="attributes">
                         <attribute name="readonly">[('parent.allow_modify_product_tax_in_invoice', '=', False),('parent.type','in', ['out_invoice','out_refund'])]</attribute>
