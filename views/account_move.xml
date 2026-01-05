@@ -13,7 +13,7 @@
 
 
                     <xpath expr = "//field[@name = 'invoice_line_ids']/tree/field[@name = 'tax_ids']" position="attributes">
-                        <attribute name="invisible">[('parent.allow_modify_product_tax_in_invoice', '=', False),('parent.type','in', ['out_invoice','out_refund'])]</attribute>
+                        <attribute name="readonly">[('parent.allow_modify_product_tax_in_invoice', '=', False),('parent.type','in', ['out_invoice','out_refund'])]</attribute>
                     </xpath>
 
                     <xpath expr = "//field[@name = 'invoice_line_ids']/tree/field[@name = 'discount']" position="after">
